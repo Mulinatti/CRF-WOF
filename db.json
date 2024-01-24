@@ -1,0 +1,40 @@
+{
+  "players": [
+    {
+      "id": 1,
+      "entered": "20/11/2023",
+      "exit": "",
+      "activity": true,
+      "info": {
+        "name": "Mulinatti",
+        "role": "Center-Back",
+        "shirt_number": 20
+      },
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "receveid": 0
+      },
+      "trophys": [
+        {
+          "id": 1,
+          "name": "Weekly",
+          "date": "20/12/2023"
+        }
+      ]
+    }
+  ],
+  "championships": [
+    {
+      "id": 1,
+      "name": "Weekly",
+      "date": "20/12/2023"
+    }
+  ],
+  "teams": [
+    {
+      "id": 1,
+      "name": "CRF"
+    }
+  ]
+}

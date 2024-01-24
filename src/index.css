@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Geist;
+  src: url("./assets/Geist-Regular.otf");
+}
+
+@font-face {
+  font-family: Nexa;
+  src: url("./assets/Nexa-Heavy.ttf");
+}
+
+@layer components {
+
+  body {
+    @apply bg-zinc-950 font-[Geist] h-full text-zinc-300;
+  }
+  header nav ul li {
+    @apply hover:text-zinc-300 transition-colors;
+  }
+}
