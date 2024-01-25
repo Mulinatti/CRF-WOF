@@ -3,7 +3,7 @@ import PlayerCard from "../../components/PlayerCard"
 import http from "../../api/connection"
 import IPlayer from "../../interfaces/IPlayer"
 
-const PlayersPage = () => {
+const Squad = () => {
 
   const [players, setPlayers] = useState<IPlayer[]>([]);
 
@@ -24,4 +24,4 @@ const PlayersPage = () => {
   )
 }
 
-export default PlayersPage
+export default Squad;

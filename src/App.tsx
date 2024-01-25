@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import PlayersPage from "./pages/PlayersPage";
+import Squad from "./pages/Squad";
+import PlayerPage from "./pages/PlayerPage";
 
 const App = () => {
   return (
@@ -9,8 +10,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Header/>}>
           <Route index element={<Home/>}/>
-          <Route path="/players" element={<PlayersPage/>}/>
+          <Route path="/players" element={<Squad/>}/>
         </Route>
+        <Route path="/players/:name" element={<PlayerPage/>}/>
       </Routes>
     </BrowserRouter>
   )
