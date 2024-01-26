@@ -58,6 +58,14 @@ const FormPage = () => {
             </div>
           </fieldset>
           <fieldset>
+            <label className="block">Sofridos</label>
+            <div className="flex items-center">
+              <MinusCircle  className="cursor-pointer"/>
+              <input className="w-12 mx-2" type="text" />
+              <PlusCircle  className="cursor-pointer"/>
+            </div>
+          </fieldset>
+          <fieldset>
             <label className="block">Partidas</label>
             <div className="flex items-center">
               <MinusCircle  className="cursor-pointer"/>
