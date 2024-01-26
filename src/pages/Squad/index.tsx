@@ -11,9 +11,8 @@ const Squad = () => {
     http.get<IPlayer[]>("/players")
       .then(res => {
         setPlayers(res.data)
-        console.log(players)
       })
-  }, [players])
+  }, [])
 
   return (
     <main className="p-5">

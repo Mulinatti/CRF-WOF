@@ -9,34 +9,6 @@ const PlayerTrophys = () => {
           <img className="w-10" src="../images/trophy.png" alt="" />
           <p className="text-sm text-center mt-2">Weekly - 20/12/2023</p>
         </div>
-        <div className="flex flex-col items-center border-b border-white/10 w-full py-4">
-          <img className="w-10" src="../images/trophy.png" alt="" />
-          <p className="text-sm text-center mt-2">Weekly - 20/12/2023</p>
-        </div>
-        <div className="flex flex-col items-center border-b border-white/10 w-full py-4">
-          <img className="w-10" src="../images/trophy.png" alt="" />
-          <p className="text-sm text-center mt-2">Weekly - 20/12/2023</p>
-        </div>
-        <div className="flex flex-col items-center border-b border-white/10 w-full py-4">
-          <img className="w-10" src="../images/trophy.png" alt="" />
-          <p className="text-sm text-center mt-2">Weekly - 20/12/2023</p>
-        </div>
-        <div className="flex flex-col items-center border-b border-white/10 w-full py-4">
-          <img className="w-10" src="../images/trophy.png" alt="" />
-          <p className="text-sm text-center mt-2">Weekly - 20/12/2023</p>
-        </div>
-        <div className="flex flex-col items-center border-b border-white/10 w-full py-4">
-          <img className="w-10" src="../images/trophy.png" alt="" />
-          <p className="text-sm text-center mt-2">Weekly - 20/12/2023</p>
-        </div>
-        <div className="flex flex-col items-center border-b border-white/10 w-full py-4">
-          <img className="w-10" src="../images/trophy.png" alt="" />
-          <p className="text-sm text-center mt-2">Weekly - 20/12/2023</p>
-        </div>
-        <div className="flex flex-col items-center border-b border-white/10 w-full py-4">
-          <img className="w-10" src="../images/trophy.png" alt="" />
-          <p className="text-sm text-center mt-2">Weekly - 20/12/2023</p>
-        </div>
       </div>
     </section>
   );

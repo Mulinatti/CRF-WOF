@@ -20,4 +20,16 @@
   header nav ul li {
     @apply hover:text-zinc-300 transition-colors;
   }
+
+  input {
+    @apply bg-transparent border outline-none focus:border-zinc-300 transition-all border-zinc-300/20 p-1 mt-1 w-full rounded-lg
+  }
+
+  input[type="file"]::-webkit-file-upload-button {
+    @apply bg-zinc-900 border-none p-2 hover:bg-zinc-300/10 transition-all cursor-pointer rounded-md text-zinc-300 font-bold text-sm;
+  }
+
+  form label {
+    @apply text-sm;
+  }
 }
