@@ -1,7 +1,7 @@
 import {
   ChevronLeftCircle,
 } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import FieldSet from "../../components/FieldSet";
 
 const FormPage = () => {
