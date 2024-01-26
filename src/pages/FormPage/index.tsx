@@ -1,9 +1,8 @@
 import {
   ChevronLeftCircle,
-  MinusCircle,
-  PlusCircle,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import FieldSet from "../../components/FieldSet";
 
 const FormPage = () => {
   const back = useNavigate();
@@ -21,60 +20,27 @@ const FormPage = () => {
         <section>
           <legend className="text-xl mb-4 font-bold">Informações</legend>
           <div className="flex justify-center">
-            <fieldset className="w-full mr-1">
-              <label className="block">Nickname</label>
-              <input type="text" />
-            </fieldset>
-            <fieldset className="w-12">
-              <label className="block">N°</label>
-              <input type="text-center" />
-            </fieldset>
+            <FieldSet label="Nickname"/>
+            <FieldSet label="N°" width="w-12"/>
           </div>
-          <fieldset>
-            <label>Posição</label>
-            <input type="text" />
-          </fieldset>
-          <fieldset className="my-4">
-            <label className="block">Imagem</label>
-            <input className="text-xs md:text-sm" type="file"/>
+          <FieldSet label="Posição"/>
+          <fieldset className="my-4 w-full">
+            <label className="block mx-2">Imagem</label>
+            <div className="flex items-center">
+              <input className="text-xs w-full mx-2 md:text-sm" type="file"/>
+            </div>
           </fieldset>
         </section>
         <section>
           <legend className="text-xl mb-4 font-bold">Estatísticas</legend>
-          <fieldset>
-            <label className="block">Gols</label>
-            <div className="flex items-center">
-              <MinusCircle className="cursor-pointer"/>
-              <input className="w-12 mx-2" type="text" />
-              <PlusCircle className="cursor-pointer" />
-            </div>
-          </fieldset>
-          <fieldset>
-            <label className="block">Assistências</label>
-            <div className="flex items-center">
-              <MinusCircle  className="cursor-pointer"/>
-              <input className="w-12 mx-2" type="text" />
-              <PlusCircle  className="cursor-pointer"/>
-            </div>
-          </fieldset>
-          <fieldset>
-            <label className="block">Sofridos</label>
-            <div className="flex items-center">
-              <MinusCircle  className="cursor-pointer"/>
-              <input className="w-12 mx-2" type="text" />
-              <PlusCircle  className="cursor-pointer"/>
-            </div>
-          </fieldset>
-          <fieldset>
-            <label className="block">Partidas</label>
-            <div className="flex items-center">
-              <MinusCircle  className="cursor-pointer"/>
-              <input className="w-12 mx-2" type="text" />
-              <PlusCircle  className="cursor-pointer"/>
-            </div>
-          </fieldset>
+          <FieldSet stat width="w-12" label="Gols"/>
+          <FieldSet stat width="w-12" label="Assistências"/>
+          <FieldSet stat width="w-12" label="Sofridos"/>
+          <FieldSet stat width="w-12" label="Partidas"/>
         </section>
-        <button className="p-3 w-full border border-transparent hover:bg-zinc-950 hover:border-zinc-300/50 transition-all bg-zinc-900 rounded-lg text-sm font-bold">Confirmar</button>
+        <div className="flex items-center">
+          <button className="p-3 mx-2 w-full border border-transparent hover:bg-zinc-950 hover:border-zinc-300/50 transition-all bg-zinc-900 rounded-lg text-sm font-bold">Confirmar</button>
+        </div>
       </form>
     </main>
   );

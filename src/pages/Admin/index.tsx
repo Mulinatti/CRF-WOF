@@ -1,8 +1,9 @@
-import { Plus } from "lucide-react";
+import { PlusCircle } from "lucide-react";
 import Actions from "../../components/Actions";
 import { useEffect, useState } from "react";
 import http from "../../api/connection";
 import IPlayer from "../../interfaces/IPlayer";
+import { Link } from "react-router-dom";
 
 const Admin = () => {
   const [players, setPlayers] = useState<IPlayer[]>([]);
@@ -23,12 +24,12 @@ const Admin = () => {
               <th className="text-start">Nick</th>
               <th className="text-start">Posição</th>
               <th>
-                <div>
-                  <Plus
+                <Link to="/admin/form/create">
+                  <PlusCircle
                     size={20}
                     className="bg-zinc-300 hover:bg-zinc-950 transition-all border border-transparent hover:border-zinc-300 rounded-full text-zinc-900 hover:text-zinc-300 cursor-pointer"
                   />
-                </div>
+                </Link>
               </th>
             </tr>
           </thead>

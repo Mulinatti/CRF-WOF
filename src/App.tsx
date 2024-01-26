@@ -17,6 +17,7 @@ const App = () => {
         <Route path="/players/:name" element={<PlayerPage/>}/>
         <Route path="/admin" element={<Admin/>}/>
         <Route path="/admin/form/:id" element={<FormPage/>}/>
+        <Route path="/admin/form/create" element={<FormPage/>}/>
       </Routes>
     </BrowserRouter>
   )
