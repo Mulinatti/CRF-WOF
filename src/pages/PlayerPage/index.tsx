@@ -7,31 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import http from "../../api/connection";
 import IPlayer from "../../interfaces/IPlayer";
-
-const playerObject = {
-  id: Number(),
-  entered: "",
-  exit: "",
-  activity: true || false,
-  info: {
-    name: "",
-    shirt_number: 0,
-    role: "",
-  },
-  stats: {
-    goals: 0,
-    assists: 0,
-    received: 0,
-    matches: 0,
-  },
-  trophys: [
-    {
-      id: Number(),
-      name: "",
-      date: "",
-    },
-  ],
-};
+import playerObject from "../../utils/playerObject";
 
 const PlayerPage = () => {
   const { id } = useParams();

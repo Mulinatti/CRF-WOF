@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL: "https://crf-api.onrender.com"
+  baseURL: "http://localhost:4001"
 })
 
 export default http;

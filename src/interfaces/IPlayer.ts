@@ -1,7 +1,7 @@
 import ITrophy from "./ITrophy";
 
 interface IPlayer {
-  id: number;
+  id?: number;
   entered: string;
   exit: string;
   activity: boolean;

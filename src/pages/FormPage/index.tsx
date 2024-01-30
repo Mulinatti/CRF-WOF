@@ -3,32 +3,18 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import FieldSet from "../../components/FieldSet";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import http from "../../api/connection";
+import playerObject from "../../utils/playerObject";
 
 const FormPage = () => {
   const back = useNavigate();
 
+  const [playerData, setPlayerData] = useState(playerObject);
+
   const fetchar = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    http.post("/players", {
-      entered: "30/01/2024",
-      exit: "",
-      activity: true,
-      info: {
-        name: "Random",
-        role: "CB",
-        shirt_number: 16
-      },
-      stats: {
-        goals: 0,
-        assists: 0,
-        receveid: 0,
-        matches: 0
-      },
-      trophys: []
-    }
-    )
+    http.post("/players", playerData)
       .then(res => console.log(res.data)
       );
   }
