@@ -1,8 +1,10 @@
+import ITrophy from "./ITrophy";
+
 interface IPlayer {
   id: number;
-  name: string;
   entered: string;
   exit: string;
+  activity: boolean;
   info: {
     name: string;
     role: string;
@@ -12,8 +14,9 @@ interface IPlayer {
     goals: number;
     assists: number;
     received: number;
+    matches: number;
   };
-  trophys: [];
+  trophys: ITrophy[];
 }
 
 export default IPlayer;

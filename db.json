@@ -7,7 +7,7 @@
       "activity": true,
       "info": {
         "name": "Mulinatti",
-        "role": "Center-Back",
+        "role": "CB",
         "shirt_number": 20
       },
       "stats": {
@@ -22,19 +22,6 @@
           "date": "20/12/2023"
         }
       ]
-    }
-  ],
-  "championships": [
-    {
-      "id": 1,
-      "name": "Weekly",
-      "date": "20/12/2023"
-    }
-  ],
-  "teams": [
-    {
-      "id": 1,
-      "name": "CRF"
     }
   ]
 }

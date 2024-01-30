@@ -1,4 +1,17 @@
-const PlayerInfo = () => {
+import colors from "../../../utils/roleColors";
+
+interface PlayerInfoProps {
+  info: {
+    name: string;
+    shirt_number: number;
+    role: string;
+  }
+}
+
+const PlayerInfo = ({info}: PlayerInfoProps) => {
+
+  const {name, shirt_number, role} = info;
+
   return (
     <div className="relative">
       <div>
@@ -18,11 +31,11 @@ const PlayerInfo = () => {
       </div>
       <div className="font-[Nexa] h-64 flex flex-col justify-between">
         <div className="hover:z-10">
-          <span className="text-4xl italic">9</span>
-          <p className="text-3xl italic">GowBraian212</p>
+          <span className="text-4xl italic">{shirt_number == 0 ? "" : shirt_number}</span>
+          <p className="text-3xl italic">{name}</p>
         </div>
         <div className="mb-2">
-          <span className="text-4xl italic text-red-500">CF</span>
+          <span className={`text-4xl italic ${colors[role]}`}>{role}</span>
         </div>
       </div>
     </div>

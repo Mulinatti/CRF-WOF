@@ -1,6 +1,7 @@
 import AboutWof from "./AboutWof";
 
 const Home = () => {
+
   return (
     <main className="h-full text-zinc-300 p-3">
       <section className="mt-20">

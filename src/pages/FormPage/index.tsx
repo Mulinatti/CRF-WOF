@@ -3,9 +3,35 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import FieldSet from "../../components/FieldSet";
+import { FormEvent } from "react";
+import http from "../../api/connection";
 
 const FormPage = () => {
   const back = useNavigate();
+
+  const fetchar = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    http.post("/players", {
+      entered: "30/01/2024",
+      exit: "",
+      activity: true,
+      info: {
+        name: "Random",
+        role: "CB",
+        shirt_number: 16
+      },
+      stats: {
+        goals: 0,
+        assists: 0,
+        receveid: 0,
+        matches: 0
+      },
+      trophys: []
+    }
+    )
+      .then(res => console.log(res.data)
+      );
+  }
 
   return (
     <main className="p-4 overflow-hidden flex flex-col items-center">
@@ -16,7 +42,7 @@ const FormPage = () => {
         <ChevronLeftCircle className="mr-2" />
         <p>Voltar</p>
       </div>
-      <form className="w-full mt-10 max-w-[400px] *:mb-4">
+      <form onSubmit={fetchar} className="w-full mt-10 max-w-[400px] *:mb-4">
         <section>
           <legend className="text-xl mb-4 font-bold">Informações</legend>
           <div className="flex justify-center">
