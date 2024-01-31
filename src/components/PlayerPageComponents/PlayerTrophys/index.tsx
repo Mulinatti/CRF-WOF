@@ -12,7 +12,7 @@ const PlayerTrophys = ({ trophys }: PlayerTrophysProps) => {
           Campeonatos
         </h3>
         {trophys.map((trophy) => (
-          <div key={trophy.id} className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3">
+          <div key={trophy.date} className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3">
             <div className="flex flex-col items-center border-b border-white/10 w-full py-4">
               <img className="w-10" src="../images/trophy.png" alt="" />
               <p className="text-sm text-center mt-2">{`${trophy.name} - ${trophy.date}`}</p>
