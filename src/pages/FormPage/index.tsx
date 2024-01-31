@@ -1,23 +1,22 @@
-import {
-  ChevronLeftCircle,
-} from "lucide-react";
+import { ChevronLeftCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import FieldSet from "../../components/FieldSet";
 import { FormEvent, useState } from "react";
 import http from "../../api/connection";
 import playerObject from "../../utils/playerObject";
+import IPlayer from "../../interfaces/IPlayer";
 
 const FormPage = () => {
   const back = useNavigate();
 
-  const [playerData, setPlayerData] = useState(playerObject);
+  const [playerData, setPlayerData] = useState<IPlayer>(playerObject);
 
-  const fetchar = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    http.post("/players", playerData)
-      .then(res => console.log(res.data)
-      );
-  }
+  const newPlayer = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    http.post("/players", playerData).then((res) => console.log(res.data));
+  };
+
+  console.log(playerData);
 
   return (
     <main className="p-4 overflow-hidden flex flex-col items-center">
@@ -28,30 +27,118 @@ const FormPage = () => {
         <ChevronLeftCircle className="mr-2" />
         <p>Voltar</p>
       </div>
-      <form onSubmit={fetchar} className="w-full mt-10 max-w-[400px] *:mb-4">
+      <form onSubmit={newPlayer} className="w-full mt-10 max-w-[400px] *:mb-4">
         <section>
           <legend className="text-xl mb-4 font-bold">Informações</legend>
           <div className="flex justify-center">
-            <FieldSet label="Nickname"/>
-            <FieldSet label="N°" width="w-12"/>
+            <FieldSet
+              inputChange={(value) =>
+                setPlayerData({
+                  ...playerData,
+                  info: {
+                    ...playerData.info,
+                    name: value,
+                  },
+                })
+              }
+              label="Nickname"
+            />
+            <FieldSet
+              inputChange={(value) =>
+                setPlayerData({
+                  ...playerData,
+                  info: {
+                    ...playerData.info,
+                    shirt_number: parseInt(value),
+                  },
+                })
+              }
+              label="N°"
+              width="w-12"
+            />
           </div>
-          <FieldSet label="Posição"/>
+          <FieldSet
+            inputChange={(value) =>
+              setPlayerData({
+                ...playerData,
+                info: {
+                  ...playerData.info,
+                  role: value,
+                },
+              })
+            }
+            label="Posição"
+          />
           <fieldset className="my-4 w-full">
             <label className="block mx-2">Imagem</label>
             <div className="flex items-center">
-              <input className="text-xs w-full mx-2 md:text-sm" type="file"/>
+              <input className="text-xs w-full mx-2 md:text-sm" type="file" />
             </div>
           </fieldset>
         </section>
         <section>
           <legend className="text-xl mb-4 font-bold">Estatísticas</legend>
-          <FieldSet stat width="w-12" label="Gols"/>
-          <FieldSet stat width="w-12" label="Assistências"/>
-          <FieldSet stat width="w-12" label="Sofridos"/>
-          <FieldSet stat width="w-12" label="Partidas"/>
+          <FieldSet
+            inputChange={(value) =>
+              setPlayerData({
+                ...playerData,
+                stats: {
+                  ...playerData.stats,
+                  goals: parseInt(value),
+                },
+              })
+            }
+            stat
+            width="w-12"
+            label="Gols"
+          />
+          <FieldSet
+            inputChange={(value) =>
+              setPlayerData({
+                ...playerData,
+                stats: {
+                  ...playerData.stats,
+                  assists: parseInt(value),
+                },
+              })
+            }
+            stat
+            width="w-12"
+            label="Assistências"
+          />
+          <FieldSet
+            inputChange={(value) =>
+              setPlayerData({
+                ...playerData,
+                stats: {
+                  ...playerData.stats,
+                  received: parseInt(value),
+                },
+              })
+            }
+            stat
+            width="w-12"
+            label="Sofridos"
+          />
+          <FieldSet
+            inputChange={(value) =>
+              setPlayerData({
+                ...playerData,
+                stats: {
+                  ...playerData.stats,
+                  matches: parseInt(value),
+                },
+              })
+            }
+            stat
+            width="w-12"
+            label="Partidas"
+          />
         </section>
         <div className="flex items-center">
-          <button className="p-3 mx-2 w-full border border-transparent hover:bg-zinc-950 hover:border-zinc-300/50 transition-all bg-zinc-900 rounded-lg text-sm font-bold">Confirmar</button>
+          <button className="p-3 mx-2 w-full border border-transparent hover:bg-zinc-950 hover:border-zinc-300/50 transition-all bg-zinc-900 rounded-lg text-sm font-bold">
+            Confirmar
+          </button>
         </div>
       </form>
     </main>

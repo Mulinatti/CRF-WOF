@@ -7,8 +7,8 @@ interface IPlayer {
   activity: boolean;
   info: {
     name: string;
-    role: string;
     shirt_number: number;
+    role: string;
   };
   stats: {
     goals: number;

@@ -1,7 +1,7 @@
 const playerObject = {
-  entered: "",
+  entered: new Date().toLocaleDateString("pt-BR"),
   exit: "",
-  activity: true || false,
+  activity: true,
   info: {
     name: "",
     shirt_number: 0,
@@ -13,12 +13,7 @@ const playerObject = {
     received: 0,
     matches: 0,
   },
-  trophys: [
-    {
-      name: "",
-      date: "",
-    },
-  ],
+  trophys: [],
 };
 
 export default playerObject;
