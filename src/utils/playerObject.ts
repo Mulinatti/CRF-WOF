@@ -4,7 +4,7 @@ const playerObject = {
   activity: true,
   info: {
     name: "",
-    shirt_number: 0,
+    shirt_number: "",
     role: "",
   },
   stats: {

@@ -1,20 +1,28 @@
 import { ChevronLeftCircle } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import FieldSet from "../../components/FieldSet";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import http from "../../api/connection";
 import playerObject from "../../utils/playerObject";
 import IPlayer from "../../interfaces/IPlayer";
 
 const FormPage = () => {
   const back = useNavigate();
-
+  const { id } = useParams();
+  
   const [playerData, setPlayerData] = useState<IPlayer>(playerObject);
 
   const newPlayer = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     http.post("/players", playerData).then((res) => console.log(res.data));
   };
+
+  useEffect(() => {
+    http.get<IPlayer>(`/players/${id}`)
+      .then(res => {
+        setPlayerData(res.data);
+      })
+  }, [id])
 
   console.log(playerData);
 
@@ -32,6 +40,7 @@ const FormPage = () => {
           <legend className="text-xl mb-4 font-bold">Informações</legend>
           <div className="flex justify-center">
             <FieldSet
+              value={playerData.info.name}
               inputChange={(value) =>
                 setPlayerData({
                   ...playerData,
@@ -44,12 +53,13 @@ const FormPage = () => {
               label="Nickname"
             />
             <FieldSet
+              value={playerData.info.shirt_number}
               inputChange={(value) =>
                 setPlayerData({
                   ...playerData,
                   info: {
                     ...playerData.info,
-                    shirt_number: parseInt(value),
+                    shirt_number: value,
                   },
                 })
               }
@@ -58,6 +68,7 @@ const FormPage = () => {
             />
           </div>
           <FieldSet
+            value={playerData.info.role}
             inputChange={(value) =>
               setPlayerData({
                 ...playerData,
@@ -79,12 +90,13 @@ const FormPage = () => {
         <section>
           <legend className="text-xl mb-4 font-bold">Estatísticas</legend>
           <FieldSet
+            value={playerData.stats.goals}
             inputChange={(value) =>
               setPlayerData({
                 ...playerData,
                 stats: {
                   ...playerData.stats,
-                  goals: parseInt(value),
+                  goals: isNaN(parseInt(value)) ? 0 : parseInt(value),
                 },
               })
             }
@@ -93,12 +105,13 @@ const FormPage = () => {
             label="Gols"
           />
           <FieldSet
+            value={playerData.stats.assists}
             inputChange={(value) =>
               setPlayerData({
                 ...playerData,
                 stats: {
                   ...playerData.stats,
-                  assists: parseInt(value),
+                  assists: isNaN(parseInt(value)) ? 0 : parseInt(value),
                 },
               })
             }
@@ -107,12 +120,13 @@ const FormPage = () => {
             label="Assistências"
           />
           <FieldSet
+            value={playerData.stats.received}
             inputChange={(value) =>
               setPlayerData({
                 ...playerData,
                 stats: {
                   ...playerData.stats,
-                  received: parseInt(value),
+                  received: isNaN(parseInt(value)) ? 0 : parseInt(value),
                 },
               })
             }
@@ -121,12 +135,13 @@ const FormPage = () => {
             label="Sofridos"
           />
           <FieldSet
+            value={playerData.stats.matches}
             inputChange={(value) =>
               setPlayerData({
                 ...playerData,
                 stats: {
                   ...playerData.stats,
-                  matches: parseInt(value),
+                  matches: isNaN(parseInt(value)) ? 0 : parseInt(value),
                 },
               })
             }
