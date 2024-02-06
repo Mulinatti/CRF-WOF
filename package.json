@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^1.6.5",
+    "compress-base64": "^1.0.2",
     "geist": "^1.2.1",
     "json-server": "^1.0.0-alpha.22",
     "lucide-react": "^0.314.0",

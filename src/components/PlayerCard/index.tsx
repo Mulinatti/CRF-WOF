@@ -9,13 +9,13 @@ interface PlayerCardProps {
 
 const PlayerCard = ({player}: PlayerCardProps) => {
 
-  const { id, info } = player;
+  const { id, info, image } = player;
 
   return (
     <li className="max-w-[238px] group max-h-[325] cursor-pointer hover:scale-105 transition-all relative shadow-lg bg-gradient-to-b from-red-700 to-black  rounded-xl overflow-hidden">
       <Link to={`/players/${id}`}>
         <div className="relative px-3 pt-3">
-          <img className="w-[210px] h-[300px] z-10 group-hover:-z-10 relative" src="./images/cr72.png" alt="" />
+          <img className="w-[210px] h-[300px] z-10 group-hover:-z-10 relative" src={image?.toString()} alt="" />
           <span className="absolute font-[Nexa] transition-colors opacity-20 group-hover:opacity-100 text-white text-5xl italic top-2 right-4">{info.shirt_number}</span>
         </div>
         <div className="p-3 absolute bottom-0 z-10 bg-black/50 backdrop-blur-sm rounded-t-2xl w-full">

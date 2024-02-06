@@ -38,7 +38,7 @@ const PlayerPage = () => {
       </div>
       <div className="p-4">
         <section className="mt-8">
-          <PlayerInfo info={player.info} />
+          <PlayerInfo image={player.image} info={player.info} />
           <PlayerStats stats={player.stats}/>
         </section>
         <PlayerActivity entered={player.entered} exit={player.exit} />

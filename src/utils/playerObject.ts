@@ -2,6 +2,7 @@ const playerObject = {
   entered: new Date().toLocaleDateString("pt-BR"),
   exit: "",
   activity: true,
+  image: "",
   info: {
     name: "",
     shirt_number: "",

@@ -5,6 +5,7 @@ interface IPlayer {
   entered: string;
   exit: string;
   activity: boolean;
+  image: string | ArrayBuffer | null;
   info: {
     name: string;
     shirt_number: string;

@@ -9,20 +9,45 @@ import IPlayer from "../../interfaces/IPlayer";
 const FormPage = () => {
   const back = useNavigate();
   const { id } = useParams();
-  
+
   const [playerData, setPlayerData] = useState<IPlayer>(playerObject);
 
-  const newPlayer = (e: FormEvent<HTMLFormElement>) => {
+  const handlePlayer = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    http.post("/players", playerData).then((res) => console.log(res.data));
+
+    if (id) {
+      http
+        .put<IPlayer>(`/players/${id}`, playerData)
+        .then((res) => console.log(res.data));
+    } else {
+      http
+        .post<IPlayer>("/players", playerData)
+        .then((res) => console.log(res.data));
+    }
+
+    back(-1);
   };
 
   useEffect(() => {
-    http.get<IPlayer>(`/players/${id}`)
-      .then(res => {
+    if (id) {
+      http.get<IPlayer>(`/players/${id}`).then((res) => {
         setPlayerData(res.data);
-      })
-  }, [id])
+      });
+    }
+  }, [id]);
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.files)
+    if (e.target.files?.length) {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        setPlayerData({ ...playerData, image: reader.result });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   console.log(playerData);
 
@@ -35,7 +60,10 @@ const FormPage = () => {
         <ChevronLeftCircle className="mr-2" />
         <p>Voltar</p>
       </div>
-      <form onSubmit={newPlayer} className="w-full mt-10 max-w-[400px] *:mb-4">
+      <form
+        onSubmit={handlePlayer}
+        className="w-full mt-10 max-w-[400px] *:mb-4"
+      >
         <section>
           <legend className="text-xl mb-4 font-bold">Informações</legend>
           <div className="flex justify-center">
@@ -83,7 +111,11 @@ const FormPage = () => {
           <fieldset className="my-4 w-full">
             <label className="block mx-2">Imagem</label>
             <div className="flex items-center">
-              <input className="text-xs w-full mx-2 md:text-sm" type="file" />
+              <input
+                onChange={handleImageChange}
+                className="text-xs w-full mx-2 md:text-sm"
+                type="file"
+              />
             </div>
           </fieldset>
         </section>

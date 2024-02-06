@@ -23,7 +23,7 @@ const FieldSet = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <fieldset className={`${width}`}>
+    <fieldset className={`${width} my-1`}>
       <label className="block mx-2">{label}</label>
       <div className="flex items-center">
         <MinusCircle
