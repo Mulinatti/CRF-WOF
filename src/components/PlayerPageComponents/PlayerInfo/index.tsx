@@ -1,7 +1,7 @@
 import colors from "../../../utils/roleColors";
 
 interface PlayerInfoProps {
-  image: string;
+  image: string | ArrayBuffer | null;
   info: {
     name: string;
     shirt_number: string;
@@ -26,7 +26,7 @@ const PlayerInfo = ({info, image}: PlayerInfoProps) => {
         <img
           //A PROPORÇAO DE ALTURA E LARGURA É CALCULADA POR WIDTH x 1,33 = ALTURA
           className="absolute w-[200px] h-[266px] transition-all md:w-[300px] md:h-[400px] top-10 md:top-0 -right-16 md:right-0"
-          src={image}
+          src={image?.toString()}
           alt=""
         />
       </div>
