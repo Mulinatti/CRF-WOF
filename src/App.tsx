@@ -3,8 +3,6 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Squad from "./pages/Squad";
 import PlayerPage from "./pages/PlayerPage";
-import Admin from "./pages/Admin";
-import FormPage from "./pages/FormPage";
 
 const App = () => {
   return (
@@ -15,9 +13,6 @@ const App = () => {
           <Route path="/players" element={<Squad/>}/>
         </Route>
         <Route path="/players/:id" element={<PlayerPage/>}/>
-        <Route path="/admin" element={<Admin/>}/>
-        <Route path="/admin/form/:id" element={<FormPage/>}/>
-        <Route path="/admin/form/create" element={<FormPage/>}/>
       </Routes>
     </BrowserRouter>
   )
